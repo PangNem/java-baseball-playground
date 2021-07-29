@@ -24,4 +24,18 @@ class BaseBallTest {
         assertThat(actual.size()).isEqualTo(3);
         actual.forEach(number -> assertThat(expectedNumberList.contains(number)).isTrue());
     }
+
+    @Test
+    @DisplayName("입력받은 숫자를 파싱한다.")
+    void getInputNumberList() {
+        // given
+        String values = "123";
+        List<Integer> expectedList = Arrays.asList(1, 2, 3);
+
+        // when
+        List<Integer> actual = baseBall.getParsedInputNumberList(values);
+
+        // then
+        assertThat(actual).isEqualTo(expectedList);
+    }
 }

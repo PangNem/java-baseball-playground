@@ -10,11 +10,14 @@ public class BaseBall {
 
     public static void main(String[] args) {
         InputView inputView = new InputView();
+        BaseBall baseBall = new BaseBall();
+
+        List<Integer> randomNumberList = baseBall.getRandomNumberList();
 
         inputView.printInputNumber();
         String inputNumber = inputView.getInputNumber();
 
-        System.out.println(inputNumber);
+        List<Integer> parsedInputNumberList = baseBall.getParsedInputNumberList(inputNumber);
     }
 
     public List<Integer> getRandomNumberList() {
@@ -28,5 +31,14 @@ public class BaseBall {
         Collections.shuffle(randomNumberList);
 
         return randomNumberList;
+    }
+
+    public List<Integer> getParsedInputNumberList(String inputNumber) {
+        List<Integer> inputNumberList = new ArrayList<>();
+        for (String splitedInputNumber : inputNumber.split("")) {
+            int parseSplitedInputNumber = Integer.parseInt(splitedInputNumber);
+            inputNumberList.add(parseSplitedInputNumber);
+        }
+        return inputNumberList;
     }
 }
