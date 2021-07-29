@@ -8,6 +8,15 @@ import java.util.Set;
 
 public class BaseBall {
 
+    public static void main(String[] args) {
+        InputView inputView = new InputView();
+
+        inputView.printInputNumber();
+        String inputNumber = inputView.getInputNumber();
+
+        System.out.println(inputNumber);
+    }
+
     public List<Integer> getRandomNumberList() {
         Set<Integer> randomNumbers = new HashSet<>();
         while (randomNumbers.size() < 3) {
