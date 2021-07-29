@@ -24,3 +24,10 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+## 구현할 기능 목록
+
+[] 정답 숫자 생성
+[] 숫자 입력 받기
+[] 입력받은 숫자 파싱 
+[] 입력받은 숫자와 정답 숫자 비교하여 결과 반환
