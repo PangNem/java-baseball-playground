@@ -1,5 +1,5 @@
 package study;
 
 public enum BallStatus {
-    NOTHING
+    BALL, NOTHING, STRIKE;
 }
