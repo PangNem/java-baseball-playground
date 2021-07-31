@@ -38,4 +38,21 @@ class BaseBallTest {
         // then
         assertThat(actual).isEqualTo(expectedList);
     }
+
+    @Test
+    @DisplayName("입력받은 숫자와 정답 숫자 비교하여 결과 반환")
+    void getResult() {
+        // given
+        List<Integer> userInputList = Arrays.asList(3, 1, 4);
+        List<Integer> randomNumberList = Arrays.asList(1, 5, 4);
+
+        // when
+        int isInRandomNumberCount = baseBall
+            .getIsInRandomNumberCount(randomNumberList, userInputList);
+        int strikeCount = baseBall.getStrikeCount(randomNumberList, userInputList);
+
+        // then
+        assertThat(isInRandomNumberCount).isEqualTo(2);
+        assertThat(strikeCount).isEqualTo(1);
+    }
 }

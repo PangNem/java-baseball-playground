@@ -7,7 +7,7 @@ public class InputView {
     private static final int VALIDATE_LENGTH = 3;
 
     public void printInputNumber() {
-        System.out.println("숫자를 입력해 주세요: ");
+        System.out.print("숫자를 입력해 주세요: ");
     }
 
     public String getInputNumber() {
