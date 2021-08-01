@@ -10,7 +10,7 @@
 
 ## 요구 사항에 따른 기능 구현 목록
 
-[] 컴퓨터는 1~9 사이의 서로 다른 랜덤한 3개의 숫자를 생성한다.
+[x] 컴퓨터는 1~9 사이의 서로 다른 랜덤한 3개의 숫자를 생성한다. NumberGenerator#createRandomNumber()
 
 - [x] 1~9 사이인가?
 - [x] 중복되지 않은, 즉 서로 다른 숫자인가?
@@ -50,8 +50,9 @@ Balls balls = new Balls(Arrays.asList(1,2,3));
 balls.play(new Ball(1, 5)) -> nothing balls.play(new Ball(1, 3)) -> ball balls.play(new Ball(1, 1))
 -> strike
 
+NumberGenerator numberGenerator = new NumberGenerator();
 
-
+actual = numberGenerator.createRandomNumber();
 
 
 

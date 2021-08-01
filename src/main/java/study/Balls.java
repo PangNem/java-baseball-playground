@@ -5,16 +5,15 @@ import java.util.List;
 
 public class Balls {
 
-    private static final int MAX_BALL_SIZE = 3;
+    private static final int BALL_COUNT = 3;
 
     private final List<Ball> balls;
 
     public Balls(List<Integer> computerBalls) {
-
         checkBallCount(computerBalls);
         checkDuplicateBallNumber(computerBalls);
         List<Ball> balls = new ArrayList<>();
-        for (int i = 0; i < MAX_BALL_SIZE; i++) {
+        for (int i = 0; i < BALL_COUNT; i++) {
             balls.add(new Ball(i + 1, computerBalls.get(i)));
         }
 
@@ -23,14 +22,14 @@ public class Balls {
 
     private void checkDuplicateBallNumber(List<Integer> computerBalls) {
         int ballNumberCount = (int) computerBalls.stream().distinct().count();
-        if (ballNumberCount != MAX_BALL_SIZE) {
+        if (ballNumberCount != BALL_COUNT) {
             throw new IllegalArgumentException("중복된 숫자는 허용되지 않습니다.");
         }
     }
 
     private void checkBallCount(List<Integer> computerBalls) {
-        if (computerBalls.size() != MAX_BALL_SIZE) {
-            throw new IllegalArgumentException("볼의 개수는" + MAX_BALL_SIZE + "개여야 합니다.");
+        if (computerBalls.size() != BALL_COUNT) {
+            throw new IllegalArgumentException("볼의 개수는" + BALL_COUNT + "개여야 합니다.");
         }
     }
 
