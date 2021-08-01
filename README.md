@@ -13,8 +13,8 @@
 [] 컴퓨터는 1~9 사이의 서로 다른 랜덤한 3개의 숫자를 생성한다.
 
 - [x] 1~9 사이인가?
-- [] 서로 다른 숫자인가?
-- [] 3자리인가?
+- [x] 중복되지 않은, 즉 서로 다른 숫자인가?
+- [x] 3자리인가?
 
 [] 사용자는 1~9 사이의 숫자 3개를 입력한다.
 [] 컴퓨터가 생성한 랜덤한 숫자와 사용자로부터 입력받은 숫자를 비교한다.
@@ -24,3 +24,34 @@
 - [] 숫자가 일치하고 자릿수까지 일치한 경우: strike
     - [] strike가 3개일 경우 입력값에 따라 게임을 재시작하거나 종료할 수 있다.
         - 1일 경우 재시작, 2일 경우 종료
+
+### 생각 메모
+
+123 / 1 5 -> nothing
+
+    1 1 / 1 5 -> nothing 
+    2 2 / 1 5 -> nothing
+    3 3 / 1 5 -> nothing
+
+123 / 1 3 -> ball
+
+    1 1 / 1 3 -> nothing
+    2 2 / 1 3 -> nothing
+    3 3 / 1 3 -> ball
+
+123 / 1 1 -> strike
+
+    1 1 / 1 1 -> strike
+    2 2 / 1 1 -> nothing
+    3 3 / 1 1 -> nothing
+
+Balls balls = new Balls(Arrays.asList(1,2,3));
+
+balls.play(new Ball(1, 5)) -> nothing balls.play(new Ball(1, 3)) -> ball balls.play(new Ball(1, 1))
+-> strike
+
+
+
+
+
+

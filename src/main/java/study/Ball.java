@@ -48,4 +48,8 @@ public class Ball {
     public int hashCode() {
         return Objects.hash(position, number);
     }
+
+    public int getNumber() {
+        return this.number;
+    }
 }
