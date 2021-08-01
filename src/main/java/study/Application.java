@@ -1,38 +1,47 @@
 package study;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Collectors;
+import study.domain.InputView;
 import study.domain.NumberGenerator;
+import study.domain.ResultView;
 
 public class Application {
 
     public static void main(String[] args) {
         NumberGenerator numberGenerator = new NumberGenerator();
-
         List<Integer> randomNumbers = getRandomNumbers(numberGenerator);
-        System.out.println(randomNumbers);
+        //System.out.println(randomNumbers);
 
-        Balls balls = new Balls(randomNumbers);
+        Balls computerBall = new Balls(randomNumbers);
 
-        Scanner scanner = new Scanner(System.in);
-        String playerValues = scanner.nextLine();
+        int playerGameRestartValue = 0;
+        while (playerGameRestartValue != 2) {
+            InputView inputView = new InputView();
+            List<Integer> playerValues = inputView.getPlayerInput();
 
-        List<Integer> playerValueList = Arrays.stream(playerValues.split(""))
-            .map(Integer::parseInt)
-            .collect(Collectors.toList());
+            List<BallStatus> playResults = getBallStatuses(computerBall, playerValues);
 
-        for (int i = 0; i < playerValueList.size(); i++) {
-            Ball ball = new Ball(i + 1, playerValueList.get(i));
-            BallStatus playResult = balls.play(ball);
-            System.out.println(playResult);
+            ResultView resultView = new ResultView();
+            resultView.printResult(playResults);
+            playerGameRestartValue = resultView.getPlayerGameRestartValue(playResults);
         }
     }
+
+    private static List<BallStatus> getBallStatuses(Balls computerBall,
+        List<Integer> playerValueList) {
+        List<BallStatus> playResults = new ArrayList<>();
+        for (int i = 0; i < playerValueList.size(); i++) {
+            Ball ball = new Ball(i + 1, playerValueList.get(i));
+            BallStatus playResult = computerBall.play(ball);
+            playResults.add(playResult);
+        }
+        return playResults;
+    }
+
 
     private static List<Integer> getRandomNumbers(NumberGenerator numberGenerator) {
         Set<Integer> randomNumbers = new HashSet<>();
